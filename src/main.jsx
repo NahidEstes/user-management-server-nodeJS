@@ -4,22 +4,37 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Form from "./assets/Form.jsx";
+
 import Users from "./components/Users.jsx";
+import Home from "./components/Home.jsx";
+import Form from "./components/Form.jsx";
+import Update from "./components/Update.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/form",
-    element: <Form />,
-  },
-  {
-    path: "/users",
-    element: <Users />,
-    loader: () => fetch("http://localhost:5000/users"),
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/form",
+        element: <Form />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
+        loader: () => fetch("http://localhost:5000/users"),
+      },
+      {
+        path: "/update/:id",
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users/${params.id}`),
+      },
+    ],
   },
 ]);
 

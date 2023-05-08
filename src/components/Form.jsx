@@ -19,20 +19,15 @@ const Form = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          alert("users added successfully");
-          form.reset();
-        }
+        form.reset();
       });
-    //   .catch((err) => console.log(err));
   };
-
   return (
     <div>
       <form onSubmit={handleForm}>
         <input type="name" name="name" id="" placeholder="Type your name" />
         <br />
-        <input type="email" name="email" id="   " placeholder="you email" />
+        <input type="email" name="email" id="" placeholder="you email" />
         <br />
         <input type="submit" name="submit" id="" />
       </form>

@@ -1,10 +1,14 @@
-import { Form } from "react-router-dom";
+import { Form, Link, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1>Information</h1>
+      <div>
+        <Link to="/form">Form</Link>
+        <Link to="/users">Users</Link>
+      </div>
+      <Outlet />
     </>
   );
 }
