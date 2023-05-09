@@ -21,19 +21,49 @@ const Update = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("user updated successfully");
+        }
       });
   };
 
   return (
     <div>
       <div>
-        <h1>Update Information of {loadedUser.name}</h1>
+        <h1 className="my-3 text-xl font-semibold">
+          Update Information of {loadedUser.name}
+        </h1>
         <form onSubmit={handleUpdateUser}>
-          <input type="text" name="name" defaultValue={loadedUser.name} />
+          {/* <input type="text" name="name" defaultValue={loadedUser.name} />
           <br />
           <input type="email" name="email" defaultValue={loadedUser.email} />
           <br />
-          <input type="submit" name="submit" value="update" />
+          <input type="submit" name="submit" value="update" /> */}
+          <div>
+            <input
+              type="text"
+              name="name"
+              className="px-2 border border-zinc-500 rounded"
+              id=""
+              defaultValue={loadedUser.name}
+              placeholder="your name"
+            />
+            <br />
+            <input
+              type="email"
+              className="px-2 border border-zinc-500 rounded mt-2"
+              name="email"
+              placeholder="your email"
+              defaultValue={loadedUser.email}
+            />
+            <br />
+            <input
+              type="submit"
+              className="p-2 border border-zinc-500 rounded mt-2"
+              name="submit"
+              id=""
+            />
+          </div>
         </form>
       </div>
     </div>

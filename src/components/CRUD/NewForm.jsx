@@ -1,7 +1,8 @@
 import React from "react";
 
-const Form = () => {
+const NewForm = () => {
   const handleForm = (e) => {
+    console.log("dfdf");
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -19,7 +20,6 @@ const Form = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        form.reset();
       });
   };
   return (
@@ -58,4 +58,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default NewForm;
