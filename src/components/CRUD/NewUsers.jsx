@@ -23,8 +23,8 @@ const NewUsers = () => {
   };
   return (
     <div>
-      {userData &&
-        userData.map((user) => (
+      {users &&
+        users.map((user) => (
           <div
             key={user._id}
             className="flex justify-center gap-6 items-center"
